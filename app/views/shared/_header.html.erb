@@ -1,0 +1,15 @@
+<header>
+  <div class="title">
+    <%= link_to 'Rails Forum', posts_path %>
+  </div>
+  <% if show_login_header? %>
+    <div class="log">
+      <% if logged_in? %>
+        <%= content_tag('span', "#{current_user.name},", class: 'user-name') %>
+        <%= link_to('Log out', logout_path, class: 'log-link') %>
+      <% else %>
+        <%= link_to('Log in', login_path, class: 'log-link') %>
+      <% end %>
+    </div>
+  <% end %>
+</header>

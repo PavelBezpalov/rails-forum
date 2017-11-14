@@ -1,0 +1,17 @@
+<h1>All posts</h1>
+<%= notice %>
+<div class='posts-list'>
+  <% @posts.each do |p| %>
+    <div class='post-item' data-id='<%= p.id %>'>
+      <%= link_to p.title, post_path(p), class: 'post-title' %>
+      <% if logged_in? && current_user.id == p.user.id %>
+        <span class="post-buttons">
+          <%= link_to 'Edit', edit_post_path(p), class: 'edit' %>
+          <%= link_to 'Delete', post_path(p), method: :delete,
+                       class: 'delete', data: { confirm: 'Are you sure?' } %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= link_to 'Create post', new_post_path %>

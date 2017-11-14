@@ -1,0 +1,18 @@
+<div class='comment'>
+  <div class='comment-author'>Author: <%= comment.user.name %></div>
+  <div class='comment-text'>
+    <%= comment.text %>
+  </div>
+  <% if logged_in? %>
+    <%= link_to post_comment_like_path(comment_id: comment.id, post_id: comment.post.id),
+                method: comment.is_liked_by?(current_user) ? :delete : :post do %>
+      <%= image_tag 'like.png', width: 20,
+                    class: 'comment-like ' + (comment.is_liked_by?(current_user) ? 'liked' : 'not-liked') %>
+    <% end %>
+  <% else %>
+    <%= link_to login_path do %>
+      <%= image_tag 'like.png', width: 20, class: 'comment-like not-liked' %>
+    <% end %>
+  <% end %>
+  <span><%= comment.likes.length %></span>
+</div>
