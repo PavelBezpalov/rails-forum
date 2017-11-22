@@ -1,8 +1,12 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.text %></p>
-<% @post.comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
-<% end %>
-<% if logged_in? %>
+<div class='posts-show'>
+  <h1 class='page-title'><%= @post.title %></h1>
+  <p><%= @post.text %></p>
+  <div class='comments'>
+    <% @post.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+    <% end %>
+  </div>
+  <% if logged_in? %>
   <%= render 'comments/form', post: @post %>
-<% end %>
+  <% end %>
+</div>

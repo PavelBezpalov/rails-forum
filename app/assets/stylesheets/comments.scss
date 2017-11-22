@@ -15,3 +15,15 @@
     }
   }
 }
+
+.comment-submit-form {
+  border-top: 1px dotted  gray;
+  label {
+    font-size: 15px;
+    margin: 0;
+  }
+  #comment_text {
+    display: block;
+    min-width: 500px;
+  }
+}

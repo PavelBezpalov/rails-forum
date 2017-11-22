@@ -1,38 +1,44 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "./mixins";
 
-.posts-list {
-  margin: 20px;
-  .post-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
-    height: 80px;
-    line-height: 80px;
-    border: 2px solid gray;
-    cursor: pointer;
-    &:hover {
-      border-color: black;
-    }
-    .post-title {
-      flex: 1;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      padding: 0 10px;
-      font-size: 30px;
-    }
-    .post-buttons {
-      font-size: 25px;
-      .edit, .delete {
+.posts-index {
+  .posts-list {
+    margin: 20px;
+    .post-item {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      line-height: 80px;
+      border: 2px solid gray;
+      cursor: pointer;
+      &:hover {
+        border-color: black;
+      }
+      .post-title {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         padding: 0 10px;
-        margin: 0 10px;
-        border: 1px solid gray;
-        &:hover {
-          border-color: black;
+        font-size: 30px;
+      }
+      .post-buttons {
+        font-size: 25px;
+        .edit, .delete {
+          @include link-button;
+          padding: 0 10px;
+          margin: 0 10px;
         }
       }
     }
   }
+  .notice {
+    text-align: center;
+  }
+}
+
+.posts-missing {
+  text-align: center;
 }
