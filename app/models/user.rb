@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :posts
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_comments, through: :likes, source: :comment
   validates :name, presence: true
   validates :email,
