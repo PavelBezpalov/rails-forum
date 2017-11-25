@@ -7,6 +7,6 @@ module ApplicationHelper
 
   def show_login_header?
     hidden_paths = [login_path, registration_path]
-    hidden_paths.all? { |path| !current_page?(path) }
+    hidden_paths.none? { |path| current_page?(path) }
   end
 end

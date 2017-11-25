@@ -6,6 +6,7 @@
 .posts-index {
   .posts-list {
     margin: 20px;
+    
     .post-item {
       display: flex;
       justify-content: space-between;
@@ -13,9 +14,11 @@
       line-height: 80px;
       border: 2px solid gray;
       cursor: pointer;
+      
       &:hover {
         border-color: black;
       }
+      
       .post-title {
         flex: 1;
         overflow: hidden;
@@ -24,6 +27,7 @@
         padding: 0 10px;
         font-size: 30px;
       }
+      
       .post-buttons {
         font-size: 25px;
         .edit, .delete {
@@ -34,6 +38,7 @@
       }
     }
   }
+  
   .notice {
     text-align: center;
   }

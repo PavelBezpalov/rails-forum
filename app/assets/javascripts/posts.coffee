@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
-  console.log('123')
   $('.post-item').on 'click', (e) ->
     postId = $(e.currentTarget).data('id')
     target = $(e.target)

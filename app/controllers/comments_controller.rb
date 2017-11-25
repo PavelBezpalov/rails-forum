@@ -1,19 +1,23 @@
 class CommentsController < ApplicationController
-  before_action :require_login
+  before_action :require_login!
+  before_action :set_post
 
   def create
-    @post = Post.find_by_id(params[:post_id])
-    if @post
-      @comment = Comment.new(post_id: @post.id,
-                             user_id: current_user.id,
-                             text: comment_params[:text]
-                            )
-      @comment.save
+    @comment = @post.comments.new(comment_params)
+    @comment.user = current_user
+    if @comment.save
+      flash[:notice] = 'Comment added!'
+    else
+      flash[:alert] = 'Comment not added!'
     end
     redirect_to post_path(@post)
   end
 
   private
+  
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
   def comment_params
     params.require(:comment).permit(:text)

@@ -6,7 +6,7 @@
     <div class="log">
       <% if logged_in? %>
         <%= content_tag('span', "#{current_user.name},", class: 'user-name') %>
-        <%= link_to('Log out', logout_path, class: 'log-link') %>
+        <%= link_to('Log out', logout_path, class: 'log-link', method: :delete) %>
       <% else %>
         <%= link_to('Log in', login_path, class: 'log-link') %>
       <% end %>

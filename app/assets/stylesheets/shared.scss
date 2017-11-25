@@ -1,20 +1,27 @@
 @import "./mixins";
+
 * {
   overflow-wrap: break-word;
 }
+
 body {
   min-width: 500px;
 
   .main {
     margin: auto 20px;
+    
     .page-title {
       text-align: center;
     }
   }
 }
-a, a:hover, a:visited, a:active {
+
+a, a:hover,
+a:visited,
+a:active {
   color: black;
   text-decoration: none !important;
+  
   &.link-button {
     @include link-button;
   }
@@ -33,14 +40,17 @@ header {
   border-bottom: 3px solid black;
   color: white;
   padding: 0 20px;
-  a, a:visited, a:active {
+  
+  a,
+  a:visited,
+  a:active {
     color: gray;
   }
+  
   a:hover {
     color: white;
   }
-  .title {
-  }
+  
   .log {
     .user-name {
       padding-right: 10px;

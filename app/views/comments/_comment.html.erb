@@ -4,7 +4,7 @@
     <%= comment.text %>
   </div>
   <% if logged_in? %>
-    <%= link_to post_comment_like_path(comment_id: comment.id, post_id: comment.post.id),
+    <%= link_to comment_like_path(comment),
                 method: comment.is_liked_by?(current_user) ? :delete : :post do %>
       <%= image_tag 'like.png', width: 20,
                     class: 'comment-like ' + (comment.is_liked_by?(current_user) ? 'liked' : 'not-liked') %>
@@ -14,5 +14,5 @@
       <%= image_tag 'like.png', width: 20, class: 'comment-like not-liked' %>
     <% end %>
   <% end %>
-  <span><%= comment.likes.length %></span>
+  <span><%= comment.likes.count %></span>
 </div>

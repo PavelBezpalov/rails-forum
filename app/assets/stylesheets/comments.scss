@@ -5,11 +5,14 @@
   border: 1px dashed black;
   margin: 10px 0;
   padding: 20px;
+  
   .comment-author {
     font-size: 15px;
   }
+  
   .comment-like {
     opacity: 0.5;
+    
     &.liked {
       opacity: 1;
     }
@@ -18,10 +21,12 @@
 
 .comment-submit-form {
   border-top: 1px dotted  gray;
+  
   label {
     font-size: 15px;
     margin: 0;
   }
+  
   #comment_text {
     display: block;
     min-width: 500px;

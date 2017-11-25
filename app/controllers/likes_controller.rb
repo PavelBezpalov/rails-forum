@@ -1,27 +1,20 @@
 class LikesController < ApplicationController
-  before_action :require_login
-  before_action :get_like
+  before_action :require_login!
+  before_action :get_comment
 
   def create
-    unless @like
-      @like = Like.new(like_params)
-      @like.save
-    end
+    current_user.liked_comments << @comment
     redirect_back fallback_location: root_path
   end
 
   def destroy
-    @like.destroy if @like
+    current_user.liked_comments.delete(@comment)
     redirect_back fallback_location: root_path
   end
 
   private
 
-  def like_params
-    { comment_id: params[:comment_id], user_id: current_user.id }
-  end
-
-  def get_like
-    @like = Like.find_by(like_params)
+  def get_comment
+    @comment = Comment.find(params[:comment_id])
   end
 end

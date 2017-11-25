@@ -17,11 +17,6 @@
       <%= f.password_field :password, class: 'form-control' %>
       <%= error_notice(@user, :password) %>
     </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-      <%= error_notice(@user, :password_confirmation) %>
-    </div>
     <%= f.submit 'Registrate' %>
     <% end %>
     <%= link_to 'Already have an account?', login_path, class: 'link-button' %>
